@@ -9,12 +9,31 @@
 	</welcome-file-list>
 	
 	<servlet>
+	<!-- it's not must to define the servlet in the web.xml, but it's possible is for example we want to define an init parameter withou annotation-->
 		<servlet-name>xmlServlet</servlet-name>
 		<servlet-class>com.XmlServlet</servlet-class>
+		<init-param>
+			<param-name>defaultName</param-name>
+			<param-value>John Doe</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>xmlServlet</servlet-name>
 		<url-pattern>/xmlServletPath</url-pattern>
+	</servlet-mapping>
+	
+	<!-- to define an init parameter to jsp, the servlet name will be mapped to the generated servlet that was created by tomcat -->
+	<servlet>
+		<servlet-name>InitJSP</servlet-name>
+		<jsp-file>/initPage.jsp</jsp-file>
+		<init-param>
+			<param-name>defaultUser</param-name>
+			<param-value>Default user name</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitJSP</servlet-name>
+		<url-pattern>/initPage.jsp</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

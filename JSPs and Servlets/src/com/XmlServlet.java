@@ -15,20 +15,22 @@ public class XmlServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Hello from XML GET Servlet!");
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		String userName = request.getParameter("userName");
-		out.println("Hello from GET " + userName);
+		PrintWriter out = response.getWriter();
+		out.println("<h3>Hello in HTML</h3>");
+		out.println(userName);
+		out.println(this.getInitParameter("defaultName"));
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Hello from XML POST Servlet!");
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		String userName = request.getParameter("userName");
 		String fullName = request.getParameter("fullName");
 		String prof = request.getParameter("prof");
 		String gender = request.getParameter("gender");
 		String[] locations = request.getParameterValues("location");
+		PrintWriter out = response.getWriter();
 		out.println("Hello from POST " + userName + "! your full name is: " + fullName);
 		out.println("Your profession is " + prof);
 		out.println("Your gender is " + gender);
