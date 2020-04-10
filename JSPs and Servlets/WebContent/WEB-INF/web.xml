@@ -9,7 +9,7 @@
 	</welcome-file-list>
 	
 	<servlet>
-	<!-- it's not must to define the servlet in the web.xml, but it's possible is for example we want to define an init parameter withou annotation-->
+	<!-- it's not must to define the servlet in the web.xml, but it's possible is for example we want to define an init parameter without annotation-->
 		<servlet-name>xmlServlet</servlet-name>
 		<servlet-class>com.XmlServlet</servlet-class>
 		<init-param>
